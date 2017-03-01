@@ -29,6 +29,10 @@ var submitButton = document.getElementById("submitInfo");
 var output1 = document.getElementById("reversalOutput");
 var output2 = document.getElementById("alphaOutput");
 var output3 = document.getElementById("palindromeOut");
+var formElement=document.getElementById("submission");
+formElement.addEventListener("submit", function(e){
+	e.preventDefault();
+})
 
 function whichKey() {
 	if(event.keyCode===13) {
@@ -41,6 +45,7 @@ function textEntered () {
 	var testString = textBox.value;
 	if (testString === ""){
 		alert("Please enter text in the box");
+	} else if (textBox.validity.patternMismatch){
 	} else {
 		reversal(testString);
 		alphabits(testString);
