@@ -1,34 +1,34 @@
 function reversal(inputText) {
 	var stringArray = inputText.split('');
 	var reverseString = stringArray.reverse().join('');
-	output1.innerHTML = "reversal: " + reverseString;
+	reverseStringOutput.innerHTML = "reversal: " + reverseString;
 }
 
 function alphabits(inputText) {
 	var stringArray = inputText.split('');
 	var alphaString = stringArray.sort().join('');
-	output2.innerHTML = "alphabits: " + alphaString;
+	orderedStringOutput.innerHTML = "alphabits: " + alphaString;
 }
 
 function palindrome(inputText) {
 	var stringArray = inputText.split('');
 	var reverseArray = stringArray.reverse().join('');
 	if (inputText===reverseArray) {
-		output3.innerHTML = "Your string is a palindrome";
+		palindromeOutput.innerHTML = "Your string is a palindrome";
 	} 
 	else {
-		output3.innerHTML = "";
+		palindromeOutput.innerHTML = "";
 	}
 
 }
 
 
-var testString = "";
+var finalString = "";
 var textBox = document.getElementById("uInput");
 var submitButton = document.getElementById("submitInfo");
-var output1 = document.getElementById("reversalOutput");
-var output2 = document.getElementById("alphaOutput");
-var output3 = document.getElementById("palindromeOut");
+var reverseStringOutput = document.getElementById("reversalOutput");
+var orderedStringOutput = document.getElementById("alphaOutput");
+var palindromeOutput = document.getElementById("palindromeOut");
 var formElement=document.getElementById("submission");
 formElement.addEventListener("submit", function(e){
 	e.preventDefault();
@@ -42,13 +42,13 @@ function whichKey() {
 submitButton.addEventListener("click", textEntered)
 textBox.addEventListener("keyup", whichKey);
 function textEntered () {
-	var testString = textBox.value;
-	if (testString === ""){
+	var finalString = textBox.value;
+	if (finalString === ""){
 		alert("Please enter text in the box");
 	} else if (textBox.validity.patternMismatch){
 	} else {
-		reversal(testString);
-		alphabits(testString);
-		palindrome(testString);
+		reversal(finalString);
+		alphabits(finalString);
+		palindrome(finalString);
 	}
 }
